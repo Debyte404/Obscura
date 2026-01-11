@@ -8,6 +8,8 @@ import { useState } from "react"
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 import { auth, googleProvider } from "@/lib/firebase"
 import { Button } from "@/components/ui/button"
+import Antigravity from "@/components/Antigravity"
+import GlassSurface from "@/components/GlassSurface"
 
 export default function Login() {
   // Local state for form inputs
@@ -76,8 +78,28 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-100">
-      <div className="w-full max-w-md rounded-xl border border-neutral-800 bg-neutral-900 p-8 shadow-xl">
+    <div className="min-h-screen flex items-center fade-in-15 justify-center bg-neutral-950 text-neutral-100">
+      <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 0 }}>
+        <Antigravity
+          count={700}
+          magnetRadius={5}
+          ringRadius={6}
+          waveSpeed={0.4}
+          waveAmplitude={1}
+          particleSize={0.7}
+          lerpSpeed={0.05}
+          color={'#099efb'}
+          autoAnimate={true}
+          particleVariance={1}
+          particleShape={'tetrahedron'}
+        />
+      </div>
+      <GlassSurface 
+          width={400} 
+          height={null}
+          borderRadius={24}
+                >
+      <div className="relative w-full max-w-md rounded-xl border border-neutral-800 bg-neutral-900/35 p-8 shadow-xl z-10">
         
         {/* App Title */}
         <h1 className="text-3xl font-bold text-center">
@@ -122,7 +144,7 @@ export default function Login() {
         <Button
           onClick={handleEmailLogin}
           disabled={loading}
-          className="mt-6 w-full bg-blue-600 hover:bg-blue-700"
+          className="mt-6 w-full bg-blue-800 hover:bg-blue-700"
         >
           {loading ? "Signing in..." : "Sign in with Email"}
         </Button>
@@ -139,11 +161,16 @@ export default function Login() {
           onClick={handleGoogleLogin}
           disabled={loading}
           variant="outline"
-          className="w-full border-neutral-700 hover:bg-neutral-800"
+          className="w-full bg-neutral-800 border-neutral-700 hover:bg-neutral-800"
         >
           Continue with Google
         </Button>
+
+        <p className="mt-4 text-center text-sm text-neutral-400">
+          Not registered? <a href="/register" className="text-blue-500 hover:underline">Register</a>.
+        </p>
       </div>
+      </GlassSurface>
     </div>
   )
 }
