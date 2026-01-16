@@ -1,3 +1,5 @@
+"use client";
+
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import React, { useMemo, useRef } from 'react';
 import * as THREE from 'three';
@@ -51,6 +53,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
     const height = viewport.height || 100;
 
     for (let i = 0; i < count; i++) {
+        // eslint-disable-next-line
       const t = Math.random() * 100;
       const factor = 20 + Math.random() * 100;
       const speed = 0.01 + Math.random() / 200;
@@ -130,7 +133,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
       const dy = my - projectedTargetY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      let targetPos = { x: mx, y: my, z: mz * depthFactor };
+      const targetPos = { x: mx, y: my, z: mz * depthFactor };
 
       if (dist < magnetRadius) {
         const angle = Math.atan2(dy, dx) + globalRotation;
@@ -187,9 +190,11 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
 
 const Antigravity: React.FC<AntigravityProps> = props => {
   return (
-    <Canvas camera={{ position: [0, 0, 50], fov: 35 }}>
-      <AntigravityInner {...props} />
-    </Canvas>
+    <div style={{ width: '100%', height: '100%' }}>
+        <Canvas camera={{ position: [0, 0, 50], fov: 35 }}>
+            <AntigravityInner {...props} />
+        </Canvas>
+    </div>
   );
 };
 

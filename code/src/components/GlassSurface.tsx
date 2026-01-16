@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState, useId } from 'react';
 
 export interface GlassSurfaceProps {
@@ -39,7 +41,9 @@ export interface GlassSurfaceProps {
     | 'plus-lighter';
   className?: string;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
+
 
 const useDarkMode = () => {
   const [isDark, setIsDark] = useState(false);
@@ -78,8 +82,10 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   yChannel = 'G',
   mixBlendMode = 'difference',
   className = '',
-  style = {}
+  style = {},
+  onClick
 }) => {
+
   const uniqueId = useId().replace(/:/g, '-');
   const filterId = `glass-filter-${uniqueId}`;
   const redGradId = `red-grad-${uniqueId}`;
@@ -314,7 +320,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       ref={containerRef}
       className={`${glassSurfaceClasses} ${focusVisibleClasses} ${className}`}
       style={getContainerStyles()}
+      onClick={onClick}
     >
+
       <svg
         className="w-full h-full pointer-events-none absolute inset-0 opacity-0 -z-10"
         xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,5 @@
-onlyBuiltDependencies:
-  - '@firebase/util'
-  - '@swc/core'
-  - esbuild
-  - protobufjs
+packages:
+  - .
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
