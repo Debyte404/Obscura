@@ -74,7 +74,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 text-left">
-                 <p className="text-cyan-400 font-bold tracking-widest text-sm uppercase">Conceptual Visualization</p>
+                 <p className="text-cyan-400 font-bold tracking-widest text-sm uppercase">Team Syntax Error</p>
                  <p className="text-white/60 text-xs">A peek into the anonymous builders of Obscura</p>
               </div>
           </div>
@@ -91,8 +91,7 @@ export default function AboutPage() {
              <div className="space-y-4">
                 <h3 className="text-cyan-300 font-bold uppercase text-xs tracking-widest">Our Mission</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                    To eliminate the loneliness epidemic by providing a judgment-free zone where technology serves humanity. 
-                    Obscura ensures your data and your identity remain yours through strict ephemerality and anonymous architecture.
+                    Our aim is to create products that solve real-world issues while making sure to have fun and grow along the way. We are very eager to take on new challenges and give it our all to achieve the goals we have set for ourselves.
                 </p>
              </div>
              <div className="space-y-4">
